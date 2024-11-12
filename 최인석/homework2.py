@@ -1,4 +1,3 @@
-# 필요한 라이브러리 임포트
 from langchain_community.vectorstores import FAISS  # (3) 검색을 위한 고속 벡터 저장소 FAISS 불러오기
 from langchain_community.document_loaders import TextLoader  # (3) 텍스트 파일 로드 기능을 제공하는 모듈
 from langchain_text_splitters import CharacterTextSplitter  # (2) 텍스트를 일정한 길이로 나누기 위한 분할기
@@ -27,7 +26,7 @@ retriever_similarity = db.as_retriever(search_type="similarity")  # (3) 유사�
 # MMR 검색: 다양성 고려하여 유사도 높은 결과 반환
 retriever_mmr = db.as_retriever(search_type="mmr", search_kwargs={"k": 2, "fetch_k": 10, "lambda_mult": 0.5})  # (3) MMR 검색기 설정
 # 유사도 임계값 기반 검색: 임계값 0.7 이상의 유사도 결과만 반환
-retriever_threshold = db.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": 0.7})  # (3) 임계값 검색기 설정
+retriever_threshold = db.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": 0.4})  # (3) 임계값 검색기 설정
 
 # 3단계: 검색 결과를 보기 쉽게 출력하는 도우미 함수
 # 검색된 문서 목록을 순서대로 출력하여 사용자가 쉽게 확인할 수 있도록 형식화
